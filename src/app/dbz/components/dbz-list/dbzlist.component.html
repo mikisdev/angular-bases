@@ -1,0 +1,15 @@
+<h4 *ngIf="listTitle">{{listTitle}}</h4>
+<ul class="list-group">
+
+  <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let character of characterList; let i = index;
+  let isEven = even" [ngClass]="{'list-group-item-dark': isEven,
+  'list-group-item-primary': !isEven}">
+    <div>
+      <span class="text-primary">{{i+1}}.</span>
+      {{character.name}} - {{character.power}}
+    </div>
+
+    <button class="btn btn-danger" (click)="onDeleteCharacter(character.id)">X</button>
+
+  </li>
+</ul>
